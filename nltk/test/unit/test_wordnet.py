@@ -174,6 +174,8 @@ class WordnNetDemo(unittest.TestCase):
         self.assertAlmostEqual(S('dog.n.01').path_similarity(S('cat.n.01')), 0.2)
         self.assertAlmostEqual(S('car.n.01').path_similarity(S('automobile.v.01')),
                                S('automobile.v.01').path_similarity(S('car.n.01')))
+        self.assertAlmostEqual(S('big.a.01').path_similarity(S('dog.n.01')),
+                               S('dog.n.01').path_similarity(S('big.a.01')))
         self.assertAlmostEqual(
             S('dog.n.01').lch_similarity(S('cat.n.01')), 2.028, places=3
         )
@@ -182,6 +184,8 @@ class WordnNetDemo(unittest.TestCase):
         )
         self.assertAlmostEqual(S('car.n.01').wup_similarity(S('automobile.v.01')),
                                S('automobile.v.01').wup_similarity(S('car.n.01')))
+        self.assertAlmostEqual(S('big.a.01').wup_similarity(S('dog.n.01')),
+                               S('dog.n.01').wup_similarity(S('big.a.01')))
         # Information Content similarities.
         brown_ic = wnic.ic('ic-brown.dat')
         self.assertAlmostEqual(
